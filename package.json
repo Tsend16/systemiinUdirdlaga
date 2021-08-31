@@ -1,0 +1,28 @@
+{
+  "name": "systemiinudirdlaga",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "pm2": "pm2 --name \"systemapi\" start index.js",
+    "pm2update": "pm2 restart systemapi",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.2",
+    "multer": "^1.4.2",
+    "sharp": "^0.29.0",
+    "socket.io": "^4.0.1",
+    "systeminformation": "^5.8.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
