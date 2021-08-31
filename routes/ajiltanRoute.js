@@ -1,14 +1,15 @@
 const express = require("express");
 const multer = require("multer");
 const router = express.Router();
-const DotoodAjiltan = require("../models/dotoodAjiltan");
+const ajiltan = require("../models/ajiltan");
 const khuudaslalt = require("../components/khuudaslalt");
 const { tokenShalgakh } = require("../middleware/tokenShalgakh");
 const aldaa = require("../components/aldaa");
 const jwt = require("jsonwebtoken");
 
-router.post("/dotoodAjiltanNevtrey", (req, res, next) => {
-  DotoodAjiltan.findOne()
+router.post("/ajiltanNevtrey", (req, res, next) => {
+  ajiltan
+    .findOne()
     .where("mail")
     .equals(req.body.mail)
     .where("nuutsUg")
@@ -39,7 +40,8 @@ router.post("/tokenoorShalgaya", (req, res, next) => {
     console.log(tokenObject);
     if (tokenObject.id == "zochin")
       throw new Error("Энэ үйлдлийг хийх эрх байхгүй байна!", 401);
-    DotoodAjiltan.findById(tokenObject.id)
+    ajiltan
+      .findById(tokenObject.id)
       .then((result) => {
         res.send(result);
       })

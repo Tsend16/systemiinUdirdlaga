@@ -7,7 +7,7 @@ const server = http.Server(app);
 const io = require("socket.io")(server);
 
 const baiguullagaRoute = require("./routes/baiguullagaRoute");
-const dotoodAjiltanRoute = require("./routes/dotoodAjiltanRoute");
+const ajiltanRoute = require("./routes/ajiltanRoute");
 const licenseRoute = require("./routes/licenseRoute");
 const aldaaBarigch = require("./middleware/aldaaBarigch");
 
@@ -33,7 +33,7 @@ app.use(
   })
 );
 app.use(baiguullagaRoute);
-app.use(dotoodAjiltanRoute);
+app.use(ajiltanRoute);
 app.use(licenseRoute);
 app.use(aldaaBarigch);
 
