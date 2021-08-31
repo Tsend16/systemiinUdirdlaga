@@ -57,15 +57,23 @@ ajiltanSchema.methods.passwordShalgaya = async function (pass) {
 
 const AjiltanModel = mongoose.model("ajiltan", ajiltanSchema);
 
-AjiltanModel.create(
-  new AjiltanModel({
-    erkh: "DeedAdmin",
-    ner: "Lamkhai",
-    ovog: "Bogd",
-    utas: "88834140",
-    mail: "Admin",
-    nuutsUg: "123",
-  })
-);
+AjiltanModel.estimatedDocumentCount(function (err, count) {
+  console.dir(err);
+  console.dir(count);
+
+  if (count == 0) {
+    AjiltanModel.create(
+      new AjiltanModel({
+        erkh: "DeedAdmin",
+        ner: "Lamkhai",
+        ovog: "Bogd",
+        utas: "88834140",
+        mail: "Admin",
+        nevtrekhNer: "Admin",
+        nuutsUg: "123",
+      })
+    );
+  }
+});
 
 module.exports = AjiltanModel;

@@ -4,10 +4,11 @@ const aldaa = require("../components/aldaa");
 const jwt = require("jsonwebtoken");
 
 exports.ajiltanNevtrey = asyncHandler(async (req, res, next) => {
+  console.log(req.body);
   const ajiltan = await Ajiltan.findOne()
     .select("+nuutsUg")
-    .where("ner")
-    .equals(req.body.ner)
+    .where("nevtrekhNer")
+    .equals(req.body.nevtrekhNer)
     .catch((err) => {
       next(err);
     });
@@ -15,6 +16,7 @@ exports.ajiltanNevtrey = asyncHandler(async (req, res, next) => {
   if (!ajiltan) throw new aldaa("Хэрэглэгчийн нэр эсвэл нууц үг буруу байна!");
   var ok = await ajiltan.passwordShalgaya(req.body.nuutsUg);
   if (!ok) throw new aldaa("Хэрэглэгчийн нэр эсвэл нууц үг буруу байна!");
+  const jwt = ajiltan.tokenUusgeye(null);
   res.status(200).json({
     success: true,
     token: jwt,
