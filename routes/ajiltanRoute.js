@@ -8,26 +8,27 @@ const aldaa = require("../components/aldaa");
 const jwt = require("jsonwebtoken");
 
 router.post("/ajiltanNevtrey", (req, res, next) => {
-  ajiltan
-    .findOne()
-    .where("mail")
-    .equals(req.body.mail)
-    .where("nuutsUg")
-    .equals(req.body.nuutsUg)
-    .then((result) => {
-      if (!result)
-        throw new aldaa("Хэрэглэгчийн нэр эсвэл нууц үг буруу байна!");
-      const jwt = result.tokenUusgeye();
-      console.log(jwt);
-      res.status(200).json({
-        success: true,
-        token: jwt,
-        result: result,
-      });
-    })
-    .catch((err) => {
-      next(err);
-    });
+  ajiltan.findOne()
+        .select("+nuutsUg")
+        .where("mail")
+        .equals(req.body.mail)
+        .then(async(result)=>{
+          console.log('result',result)
+          if (!result)
+            throw new aldaa('Хэрэглэгчийн нэр эсвэл нууц үг буруу байна!');
+          var ok = await result.passwordShalgaya(req.body.nuutsUg);
+          if (!ok)
+            throw new aldaa('Хэрэглэгчийн нэр эсвэл нууц үг буруу байна!');
+          const jwt = result.tokenUusgeye();
+          res.status(200).json({
+            success: true,
+            token: jwt,
+            result: result,
+          });
+        })
+        .catch((err) => {
+            next(err);
+        });
 });
 
 router.post("/tokenoorShalgaya", (req, res, next) => {
