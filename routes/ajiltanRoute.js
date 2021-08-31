@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const ajiltan = require("../models/ajiltan");
+const Ajiltan = require("../models/ajiltan");
 
 const { crud } = require("../components/crud");
 
@@ -9,10 +9,7 @@ const {
   tokenoorAjiltanAvya,
 } = require("../controller/ajiltan");
 
-crud(router, "ajiltan", Ajiltan, {
-  fileZam: "./zurag/ajiltan",
-  fileName: "zurag",
-});
+crud(router, "ajiltan", Ajiltan);
 
 router.route("/ajiltanNevtrey").post(ajiltanNevtrey);
 
