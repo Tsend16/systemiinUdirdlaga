@@ -11,14 +11,18 @@ const ajiltanSchema = new Schema(
     ovog: String,
     utas: String,
     mail: String,
+    nevtrekhNer: String,
     register: String,
     ajildOrsonOgnoo: Date,
     khayag: String,
     erkh: String,
     albanTushaal: String,
-    nuutsUg: String,
+    nuutsUg: {
+      type: String,
+      select: false,
+    },
     zurgiinNer: String,
-    tsonkhniiErkhuud:[String]
+    tsonkhniiErkhuud: [String],
   },
   { timestamps: true }
 );
@@ -51,8 +55,17 @@ ajiltanSchema.methods.passwordShalgaya = async function (pass) {
   return await bcrypt.compare(pass, this.nuutsUg);
 };
 
-const AjiltanModel = mongoose.model("ajiltan", ajiltanSchema)
+const AjiltanModel = mongoose.model("ajiltan", ajiltanSchema);
 
-AjiltanModel.create(new AjiltanModel({erkh:'DeedAdmin',ner:'Lamkhai',ovog:"Bogd",utas:'88834140',mail:'Admin',nuutsUg:'123'}))
+AjiltanModel.create(
+  new AjiltanModel({
+    erkh: "DeedAdmin",
+    ner: "Lamkhai",
+    ovog: "Bogd",
+    utas: "88834140",
+    mail: "Admin",
+    nuutsUg: "123",
+  })
+);
 
 module.exports = AjiltanModel;
