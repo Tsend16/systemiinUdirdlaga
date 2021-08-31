@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 mongoose.pluralize(null);
+var license = new Schema({});
 const baiguullagaSchema = new Schema(
   {
     id: String,
@@ -20,6 +21,13 @@ const baiguullagaSchema = new Schema(
       coordinates: {
         type: [Number],
       },
+    },
+    license: {
+      duusakhOgnoo: {
+        type: Date,
+        required: true,
+      },
+      moduluud: [String],
     },
   },
   {
