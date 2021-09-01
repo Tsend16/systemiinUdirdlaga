@@ -19,7 +19,7 @@ mongoose
     useCreateIndex: true,
     useFindAndModify: false,
   })
-  .then((result) => server.listen(8082))
+  .then((result) => server.listen(8282))
   .catch((err) => console.log(err));
 
 process.env.TZ = "Asia/Ulaanbaatar";
