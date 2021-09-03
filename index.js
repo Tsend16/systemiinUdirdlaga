@@ -8,7 +8,7 @@ const io = require("socket.io")(server);
 
 const baiguullagaRoute = require("./routes/baiguullagaRoute");
 const ajiltanRoute = require("./routes/ajiltanRoute");
-const aldaaBarigch = require("./middleware/aldaaBarigch");
+const aldaaRoute = require("./routes/aldaaRoute");
 
 const dbUrl =
   "mongodb://localhost:27017/udirdlaga?readPreference=primary&ssl=false";
@@ -33,7 +33,7 @@ app.use(
 );
 app.use(baiguullagaRoute);
 app.use(ajiltanRoute);
-app.use(aldaaBarigch);
+app.use(aldaaRoute);
 
 io.on("connection", (socket) => {
   console.log("connected");

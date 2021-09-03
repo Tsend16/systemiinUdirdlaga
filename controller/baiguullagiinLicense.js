@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 exports.baiguullagiinDuusakhKhugatsaaAvya = asyncHandler(
   async (req, res, next) => {
-    var baiguullaga = await Baiguullaga.findById(req.body.baiguullagiinId);
+    var baiguullaga = await Baiguullaga.findOne({"register" : req.body.register});
     if (baiguullaga == null) throw new aldaa("Байгууллага буруу байна!");
     if (baiguullaga.license == null)
       throw new aldaa("Лицензийн мэдээлэл олдсонгүй!");
