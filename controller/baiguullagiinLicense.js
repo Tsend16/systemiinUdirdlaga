@@ -6,10 +6,12 @@ const jwt = require("jsonwebtoken");
 
 exports.baiguullagiinDuusakhKhugatsaaAvya = asyncHandler(
   async (req, res, next) => {
-    var baiguullaga = await Baiguullaga.findOne({"register" : req.body.register});
-    if (baiguullaga == null) throw new aldaa("Байгууллага буруу байна!");
-    if (baiguullaga.license == null)
-      throw new aldaa("Лицензийн мэдээлэл олдсонгүй!");
-    res.send(baiguullaga.license.duusakhOgnoo);
+    console.log(req.body);
+    var baiguullaga = await Baiguullaga.findOne({ "register": req.body.register });
+    if (baiguullaga == null) res.send({ msg: "Байгууллага буруу байна!", success: false });
+    else if (baiguullaga.license == null)
+      res.send({ msg: "Лицензийн мэдээлэл олдсонгүй!", success: false });
+    console.log(baiguullaga);
+    res.send({ duusakhOgnoo: baiguullaga.license.duusakhOgnoo, success: true });
   }
 );

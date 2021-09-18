@@ -13,10 +13,13 @@ const { tokenShalgakh } = require("../middleware/tokenShalgakh");
 
 crud(router, "baiguullaga", Baiguullaga, async (req, res, next) => {
   console.log("data", req.body);
+  var port = 8080;
+  if (req.body.systemuud && Array.isArray(req.body.systemuud) && req.body.systemuud.includes("Turees"))
+    port = 8081;
   const data = new TextEncoder().encode(JSON.stringify(req.body));
   const options = {
     hostname: "127.0.0.1",
-    port: 8081,
+    port: port,
     path: "/baiguullagaBurtgekh",
     method: "POST",
     headers: {
