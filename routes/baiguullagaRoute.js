@@ -29,12 +29,13 @@ crud(router, "baiguullaga", Baiguullaga, async (req, res, next) => {
 
   const request = http.request(options, (response) => {
     response.on("data", (d) => {
-      if (res.statusCode == 200 && d == "Amjilttai") next();
+      console.log(res.statusCode);
+      if (res.statusCode == 200) next();
     });
   });
 
   request.on("error", (error) => {
-    throw new aldaa(error);
+    next(new aldaa(error));
   });
 
   request.write(data);
