@@ -42,44 +42,32 @@ crud(router, "baiguullaga", Baiguullaga, async (req, res, next) => {
   request.end();
 });
 
-router.post("/khyanakhSambariinUgugdulAvya", (req, res, next) => {
-  const data = new TextEncoder().encode(
-    JSON.stringify({
-      ner: "Buy the milk 🍼",
-      khayag: "Buy the milk 🍼",
-      mail: "Buy the milk 🍼",
-      register: "Buy the milk 🍼",
-    })
-  );
-
-  const options = {
-    hostname: "127.0.0.1",
-    port: 8081,
-    path: "/baiguullagaBurtgekh",
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Content-Length": data.length,
-    },
-  };
-
-  const request = http.request(options, (response) => {
-    console.log(`statusCode: ${res.statusCode}`);
-
-    response.on("data", (d) => {
-      process.stdout.write(d);
-    });
-  });
-
-  request.on("error", (error) => {
-    console.error(error);
-  });
-
-  request.write(data);
-  request.end();
-  res.send({});
-});
 router
   .route("/baiguullagiinDuusakhKhugatsaaAvya")
   .get(baiguullagiinDuusakhKhugatsaaAvya);
+
+router.post("/licenseSungaya", tokenShalgakh, (req, res, next) => {
+  try {
+    console.log(req.body);
+    Baiguullaga.findOneAndUpdate({
+      _id: req.body.baiguullagiinId
+    }, {
+      $set: {
+        "license.duusakhOgnoo": req.body.ognoo
+      }
+    }, {
+      upsert: true
+    })
+      .then((result) => {
+        res.send(result);
+      })
+      .catch((err) => {
+        next(err);
+      });
+  } catch (error) {
+    next(error);
+  }
+});
+
+
 module.exports = router;
