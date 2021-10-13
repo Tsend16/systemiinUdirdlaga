@@ -1,1 +1,0 @@
-cd ../hicar/hicar && yarn update

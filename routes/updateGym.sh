@@ -1,1 +1,0 @@
-cd ../../gymFront && yarn update
