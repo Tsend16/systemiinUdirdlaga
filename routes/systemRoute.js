@@ -10,7 +10,7 @@ router.post("/updateKhiiye/:system", tokenShalgakh, async (req, res, next) => {
         var system = req.params.system;
         if (system) {
             cp.exec("cd ../../gymFront && yarn update", function (err, stdout, stderr) {
-                console.log("err", err, stdout, stderr)
+                res.sendStatus(200).json({ err, stdout, stderr });
             })
         }
     } catch (error) {
