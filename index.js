@@ -8,6 +8,7 @@ const io = require("socket.io")(server);
 
 const baiguullagaRoute = require("./routes/baiguullagaRoute");
 const ajiltanRoute = require("./routes/ajiltanRoute");
+const systemInfo = require("./routes/systemInfo");
 const aldaaRoute = require("./routes/aldaaRoute");
 
 const dbUrl =
@@ -33,6 +34,7 @@ app.use(
 );
 app.use(baiguullagaRoute);
 app.use(ajiltanRoute);
+app.use(systemInfo);
 app.use(aldaaRoute);
 
 io.on("connection", (socket) => {
