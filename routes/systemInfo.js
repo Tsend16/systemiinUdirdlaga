@@ -5,7 +5,6 @@ const {
 } = require("../middleware/tokenShalgakh");
 const si = require('systeminformation');
 
-
 router.get("/systemiinMedeelelAvya", tokenShalgakh, async (req, res, next) => {
     try {
         var mem = await si.mem();

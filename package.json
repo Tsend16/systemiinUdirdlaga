@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon index.js",
     "pm2": "pm2 --name \"systemapi\" start index.js",
-    "pm2update": "pm2 restart systemapi",
+    "update": "git pull && pm2 reload systemapi",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
