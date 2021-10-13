@@ -10,7 +10,8 @@ router.post("/updateKhiiye/:system", tokenShalgakh, async (req, res, next) => {
         var system = req.params.system;
         if (system) {
             cp.exec("sh ../updater/updateGym.sh", function (err, stdout, stderr) {
-                res.send(200).json({
+                console
+                res.sendStatus(200).json({
                     err, stdout, stderr
                 });
             })
