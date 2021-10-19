@@ -10,6 +10,7 @@ const baiguullagaRoute = require("./routes/baiguullagaRoute");
 const ajiltanRoute = require("./routes/ajiltanRoute");
 const systemInfo = require("./routes/systemInfo");
 const systemRoute = require("./routes/systemRoute");
+const mailRoute = require("./routes/mailRoute");
 const aldaaRoute = require("./routes/aldaaRoute");
 
 const dbUrl =
@@ -37,6 +38,7 @@ app.use(baiguullagaRoute);
 app.use(ajiltanRoute);
 app.use(systemInfo);
 app.use(systemRoute);
+app.use(mailRoute);
 app.use(aldaaRoute);
 
 io.on("connection", (socket) => {
