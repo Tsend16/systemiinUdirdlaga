@@ -72,7 +72,7 @@ router.post("/nekhemjlekhMailIlgeeye", async (req, res, next) => {
       systemiinNer: systemiinNer,
       ognoo: new Date().toLocaleDateString("en-US"),
       tulbur: formatNumber(req.body.tulbur),
-      nuatDun: formatNumber(nuatDun),
+      nuatDun: nuatDun,
     };
     var htmlToSend = template(replacements);
 
