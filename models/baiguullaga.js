@@ -8,7 +8,7 @@ const baiguullagaSchema = new Schema(
     id: String,
     ner: String,
     khayag: String,
-    mail: String,
+    mail: [String],
     register: String,
     utas: String,
     zurgiinNer: String,
