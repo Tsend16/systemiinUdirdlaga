@@ -8,7 +8,7 @@ router.post("/updateKhiiye/:system", tokenShalgakh, async (req, res, next) => {
     var system = req.params.system;
     if (system) {
       cp.exec(
-        "cd ../../" + system + "&& yarn update",
+        "cd ../" + system + "&& yarn update",
         function (err, stdout, stderr) {
           res.json({ err, stdout, stderr });
         }
