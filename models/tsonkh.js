@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 mongoose.pluralize(null);
-const tsonkhnuudSchema = new Schema(
+const tsonkhSchema = new Schema(
   {
     system: String,
     zam: String,
@@ -12,6 +12,6 @@ const tsonkhnuudSchema = new Schema(
   { timestamps: true }
 );
 
-const tsonkhnuudModel = mongoose.model("tsonkhnuud", tsonkhnuudSchema);
+const tsonkhModel = mongoose.model("tsonkh", tsonkhSchema);
 
-module.exports = tsonkhnuudModel;
+module.exports = tsonkhModel;
