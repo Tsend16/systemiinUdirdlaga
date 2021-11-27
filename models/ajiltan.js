@@ -33,7 +33,7 @@ ajiltanSchema.methods.tokenUusgeye = function () {
     { id: this._id, turul: "ajiltan" },
     "dAjiltanTokenKey",
     {
-      expiresIn: "1h",
+      expiresIn: "12h",
     }
   );
   return token;
