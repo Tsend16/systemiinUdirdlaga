@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 mongoose.pluralize(null);
-const tsonkhSchema = new Schema(
+const ajilSchema = new Schema(
   {
     system: String,
     kod: String,
@@ -19,6 +19,12 @@ const tsonkhSchema = new Schema(
     ekhelsenOgnoo: Date,
     yaaraltaiEsekh: Boolean,
     duusakhYostoiOgnoo: Date,
+    burtgeldKheregteiTalbaruud: [
+      {
+        talbar: String,
+        tailbar: String,
+      },
+    ],
     backiinMedeelel: [
       {
         serviceName: String,
@@ -35,6 +41,6 @@ const tsonkhSchema = new Schema(
   { timestamps: true }
 );
 
-const tsonkhModel = mongoose.model("tsonkh", tsonkhSchema);
+const ajilModel = mongoose.model("ajil", ajilSchema);
 
-module.exports = tsonkhModel;
+module.exports = ajilModel;
