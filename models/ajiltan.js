@@ -17,6 +17,8 @@ const ajiltanSchema = new Schema(
     khayag: String,
     erkh: String,
     albanTushaal: String,
+    exp: Number,
+    level: Number,
     nuutsUg: {
       type: String,
       select: false,
