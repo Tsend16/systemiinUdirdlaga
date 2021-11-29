@@ -19,6 +19,7 @@ const ajilSchema = new Schema(
     ekhelsenOgnoo: Date,
     yaaraltaiEsekh: Boolean,
     duusakhYostoiOgnoo: Date,
+    exp: Number,
     burtgeldKheregteiTalbaruud: [
       {
         talbar: String,
