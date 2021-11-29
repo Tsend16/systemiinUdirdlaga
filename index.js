@@ -13,6 +13,7 @@ const systemRoute = require("./routes/systemRoute");
 const mailRoute = require("./routes/mailRoute");
 const aldaaRoute = require("./routes/aldaaRoute");
 const tsonkhRoute = require("./routes/tsonkhRoute");
+const ajilRoute = require("./routes/ajilRoute");
 
 const dbUrl =
   "mongodb://localhost:27017/udirdlaga?readPreference=primary&ssl=false";
@@ -42,6 +43,7 @@ app.use(systemRoute);
 app.use(mailRoute);
 app.use(aldaaRoute);
 app.use(tsonkhRoute);
+app.use(ajilRoute);
 
 io.on("connection", (socket) => {
   console.log("connected");
