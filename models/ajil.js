@@ -8,6 +8,7 @@ const ajilSchema = new Schema(
     kod: String,
     ner: String,
     tailbar: String,
+    turul: String,
     tuluv: {
       type: String,
       enum: ["ekhelsen", "duussan", "butsaasan"],
@@ -16,7 +17,9 @@ const ajilSchema = new Schema(
     frontKhugjuulegch: String,
     backKhugjuulegch: String,
     chat: [Schema.Types.Mixed],
-    ekhelsenOgnoo: Date,
+    frontEkhelsenOgnoo: Date,
+    backEkhelsenOgnoo: Date,
+    duussanOgnoo: Date,
     yaaraltaiEsekh: Boolean,
     duusakhYostoiOgnoo: Date,
     exp: Number,
