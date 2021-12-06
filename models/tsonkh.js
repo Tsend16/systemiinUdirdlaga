@@ -8,6 +8,7 @@ const tsonkhSchema = new Schema(
     zam: String,
     ner: String,
     tailbar: String,
+    unelgee: Number,
   },
   { timestamps: true }
 );
