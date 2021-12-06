@@ -22,6 +22,7 @@ const ajilSchema = new Schema(
     duussanOgnoo: Date,
     yaaraltaiEsekh: Boolean,
     duusakhYostoiOgnoo: Date,
+    tuluvluguuniiId: String,
     exp: Number,
     burtgeldKheregteiTalbaruud: [
       {
