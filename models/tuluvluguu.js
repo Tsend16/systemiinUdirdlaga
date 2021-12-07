@@ -15,6 +15,11 @@ const tuluvluguuSchema = new Schema(
     /**Хийгдэж байгаа ажилийн нэгж дүн */
     yavtsiinDun: Number,
     /**Төлөвлөгөөт ажилийн дуусах огноо*/
+    tuluv: {
+      type: String,
+      enum: ["ekhelsen", "duussan", "tsutsalsan"],
+    },
+    /**Төлөвлөгөөт ажилийн дуусах огноо*/
     duusakhOgnoo: Date,
   },
   { timestamps: true }

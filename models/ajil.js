@@ -19,29 +19,21 @@ const ajilSchema = new Schema(
     chat: [Schema.Types.Mixed],
     frontEkhelsenOgnoo: Date,
     backEkhelsenOgnoo: Date,
+    frontTuluv: {
+      type: String,
+      enum: ["ekhelsen", "duussan", "butsaasan"],
+    },
+    backTuluv: {
+      type: String,
+      enum: ["ekhelsen", "duussan", "butsaasan"],
+    },
     duussanOgnoo: Date,
     yaaraltaiEsekh: Boolean,
     duusakhYostoiOgnoo: Date,
     tuluvluguuniiId: String,
     exp: Number,
-    burtgeldKheregteiTalbaruud: [
-      {
-        talbar: String,
-        tailbar: String,
-      },
-    ],
-    backiinMedeelel: [
-      {
-        serviceName: String,
-        tailbar: String,
-        parameteruud: [
-          {
-            talbar: String,
-            tailbar: String,
-          },
-        ],
-      },
-    ],
+    frontTailbar: String,
+    backTailbar: String,
   },
   { timestamps: true }
 );
