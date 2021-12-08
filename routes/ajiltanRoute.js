@@ -8,8 +8,29 @@ const {
   ajiltanNevtrey,
   tokenoorAjiltanAvya,
 } = require("../controller/ajiltan");
+const { tokenShalgakh } = require("../middleware/tokenShalgakh");
 
 crud(router, "ajiltan", Ajiltan);
+
+router.put(`/ajiltan/tokhirgoo/:id`, tokenShalgakh, async (req, res, next) => {
+  try {
+    console.log(req.body);
+    Ajiltan.findOneAndUpdate(
+      {
+        _id: req.params.id,
+      },
+      req.body
+    )
+      .then((result) => {
+        res.send("Amjilttai");
+      })
+      .catch((err) => {
+        next(err);
+      });
+  } catch (error) {
+    next(error);
+  }
+});
 
 router.route("/ajiltanNevtrey").post(ajiltanNevtrey);
 

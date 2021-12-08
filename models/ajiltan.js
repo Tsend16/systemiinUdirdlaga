@@ -25,6 +25,7 @@ const ajiltanSchema = new Schema(
     },
     zurgiinNer: String,
     tsonkhniiErkhuud: [String],
+    shinechlekhErkh: [String],
   },
   { timestamps: true }
 );
