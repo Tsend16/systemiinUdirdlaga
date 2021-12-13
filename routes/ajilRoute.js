@@ -17,7 +17,14 @@ router.post(
   "/ajilEkhluulya/:turul/:ajiliinId/:exp/:tuluvluguuniiId",
   tokenShalgakh,
   async (req, res, next) => {
-    mongoTransaction(req, res, next, ajilEkhluulya, tuluvluguuKhutulyu);
+    const fajil = await ajil.findOne({ _id: req.params.ajiliinId });
+    mongoTransaction(
+      req,
+      res,
+      next,
+      (...p) => ajilEkhluulya(...p, fajil),
+      (...p) => tuluvluguuKhutulyu(...p, fajil)
+    );
   }
 );
 
@@ -25,7 +32,14 @@ router.post(
   "/ajilDuusgaya/:turul/:ajiliinId/:exp/:tuluvluguuniiId",
   tokenShalgakh,
   async (req, res, next) => {
-    mongoTransaction(req, res, next, ajilDuusgaya, tuluvluguuDuusgaya);
+    const fajil = await ajil.findOne({ _id: req.params.ajiliinId });
+    mongoTransaction(
+      req,
+      res,
+      next,
+      (...p) => ajilDuusgaya(...p, fajil),
+      (...p) => tuluvluguuDuusgaya(...p, fajil)
+    );
   }
 );
 
