@@ -24,5 +24,5 @@ const tuluvluguuDuusgaya = async (req, res, next) => {
   );
   return tuluvluguuModified?.ok !== 1 && tuluvluguuModified?.nModified !== 1;
 };
-
+exports.tuluvluguuDuusgaya = tuluvluguuDuusgaya;
 exports.tuluvluguuKhutulyu = tuluvluguuKhutulyu;
