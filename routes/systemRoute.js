@@ -10,6 +10,7 @@ router.post("/updateKhiiye/:system", tokenShalgakh, async (req, res, next) => {
       cp.exec(
         "cd ../" + system + "&& yarn update",
         function (err, stdout, stderr) {
+          req.app.get('socketio').emit(system, {err, stdout, stderr});
           res.json({ err, stdout, stderr });
         }
       );
