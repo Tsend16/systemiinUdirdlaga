@@ -49,7 +49,7 @@ function systemiinNerUgye(list) {
     else if (list[0] == "HiCar") butsaakhUtga = "HiCar системийн төлбөр";
     else if (list[0] == "Gym")
       butsaakhUtga = "Фитнессийн удирдлагын системийн төлбөр";
-  } catch (err) {}
+  } catch (err) { }
   return butsaakhUtga;
 }
 
