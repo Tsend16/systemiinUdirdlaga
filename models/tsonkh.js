@@ -9,6 +9,8 @@ const tsonkhSchema = new Schema(
     ner: String,
     tailbar: String,
     unelgee: Number,
+    zaavar:String,
+    tokhirgoo:[Schema.Types.Mixed]
   },
   { timestamps: true }
 );
